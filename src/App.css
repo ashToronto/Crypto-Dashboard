@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -22,11 +17,44 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.wrapper {
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px 200px;
+  grid-gap: 30px;
+  color: #444;
+}
+
+.box {
+  background-color: #444;
+  color: #fff;
+  border-radius: 9px;
+  padding: 20px;
+  font-size: 50%;
+}
+
+.currency_list {
+  margin-top: 300px
+}
+
+.chart_bttn{
+  display: inline;
+  font-size: 20px;
+  color: yellow;
+  background-color: #444;
+  border: none;
+  opacity: 0.6;
+}
+
+.chart_bttn:hover {
+  transition: 0.3s;
+  opacity: 1;
+}
+
+.icon_position {
+  display: inline-block;
+  vertical-align:middle;
+}
+
+.last24h_value {
+  display: inline-block;
 }
