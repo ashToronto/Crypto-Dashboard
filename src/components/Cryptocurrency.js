@@ -1,19 +1,18 @@
 import React, {Component} from 'react';
-import {MdInsertChart, MdExposureNeg1, MdArrowDownward, MdArrowUpward} from 'react-icons/md';
+import {MdInsertChart, MdArrowDownward, MdArrowUpward} from 'react-icons/md';
 
 class Cryptocurrency extends Component {
   constructor(props) {
     super(props)
     this.state = {
       currencies: [],
-      coin: "",
+      historical: []
     }
   }
 
   // Call to cryptocompare API for top 100 coins listed
   componentDidMount() {
     fetch(`https://api.coinmarketcap.com/v2/ticker/?convert=USD&limit=100&sort=rank&structure=array`).then(res => res.json()).then(result => {
-      console.log("iii: ", result)
       this.setState({currencies: result.data})
     });
   }
@@ -22,8 +21,11 @@ class Cryptocurrency extends Component {
     e.preventDefault();
     const coin = e.target.elements.current_coin.value
     console.log("coin", coin)
-    fetch(`https://min-api.cryptocompare.com/data/histoday?fsym=${coin}&tsym=USD`).then(res => res.json()).then(result => {
-      console.log("historical data: ", result)
+    fetch(`https://min-api.cryptocompare.com/data/histoday?fsym=${coin}&tsym=USD`)
+    .then(res => res.json())
+    .then(result => {
+      this.setState({historical: result.Data})
+      console.log("historical data logged out: ", this.state.historical)
     });
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -40,7 +42,7 @@ class Cryptocurrency extends Component {
               <p>{currency.name}</p>
               <p>{currency.symbol}</p>
               <p>$ {Math.round(currency.quotes.USD.price * 100) / 100}</p>
-              <span classname="last24h_value">{
+              <span className="last24h_value">{
                   (currency.quotes.USD.percent_change_24h > 0)
                     ? <font color="#04d67b">
                         {currency.quotes.USD.percent_change_24h + '%'}

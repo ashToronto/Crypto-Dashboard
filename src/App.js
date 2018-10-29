@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Cryptocurrency from './components/Cryptocurrency';
-import logo from './logo.svg';
+import Chart from './components/Chart';
 import './App.css';
 
 class App extends Component {
@@ -11,6 +11,7 @@ class App extends Component {
           <p>
             WORKS
           </p>
+          <Chart />
           <Cryptocurrency />
         </header>
       </div>
