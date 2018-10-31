@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Cryptocurrency from './components/Cryptocurrency';
-import Chart from './components/Chart';
 import './App.css';
 
 class App extends Component {
@@ -8,10 +7,6 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <p>
-            WORKS
-          </p>
-          <Chart />
           <Cryptocurrency />
         </header>
       </div>
