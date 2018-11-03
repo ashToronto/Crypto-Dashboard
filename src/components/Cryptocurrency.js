@@ -9,7 +9,8 @@ class Cryptocurrency extends Component {
     this.state = {
       currencies: [],
       chartData: {},
-      showChart: false
+      showChart: false,
+      selected_coin: ""
     }
   }
 
@@ -45,26 +46,33 @@ class Cryptocurrency extends Component {
       // Create chart with coin data
       this.setState({
         showChart: true,
+        selected_coin: coin,
         chartData: {
           labels: xAxis_time,
           datasets: [
             {
               label: "close",
               data: yAxis_closing_value,
-              borderColor: "#c45850",
+              borderColor: "#426db2",
               fill: false,
+              pointBackgroundColor: "#2b6dd8",
+              pointBorderColor: "#2b6dd8",
             },
             {
               label: "high",
               data: yAxis_high,
-              borderColor: "blue",
+              borderColor: "#3ba328",
               fill: false,
+              pointBackgroundColor: "#3bc122",
+              pointBorderColor: "#3bc122",
             },
             {
               label: "low",
               data: yAxis_low,
-              borderColor: "yellow",
+              borderColor: "#b2474c",
               fill: false,
+              pointBackgroundColor: "#ce272f",
+              pointBorderColor: "#ce272f",
             }
           ]
         }
@@ -76,8 +84,8 @@ class Cryptocurrency extends Component {
 
   render() {
     return (<div className='currency_list'>
+    {this.state.showChart ? (<p>{this.state.selected_coin}</p>) : null}
     {this.state.showChart ? (<Line data={this.state.chartData}/>) : (<p>SELECT A CURRENCY</p>)}
-      <h3>CryptoTrack</h3>
       <p>Most Popular Cryptocurrencies</p>
       <div className='wrapper'>
         {
