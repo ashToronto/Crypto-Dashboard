@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "crypto-dshboard",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -29,5 +29,18 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "description": "## About",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashToronto/Crypto-Dashboard.git"
+  },
+  "author": "ash",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashToronto/Crypto-Dashboard/issues"
+  },
+  "homepage": "https://github.com/ashToronto/Crypto-Dashboard#readme"
 }
